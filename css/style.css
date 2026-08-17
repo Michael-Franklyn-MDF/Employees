@@ -1,0 +1,282 @@
+/* ---------- Reset & base ---------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: #1a1d23;
+    background: #f8f9fb;
+    line-height: 1.5;
+  }
+  
+  a {
+    color: #1e3a5f;
+  }
+  
+  /* ---------- Header / nav ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 1.5rem;
+    background: #111827;
+    color: #fff;
+  }
+  
+  header h1 {
+    font-size: 1.1rem;
+  }
+  
+  header nav a {
+    color: #9ca3af;
+    text-decoration: none;
+    margin-right: 1rem;
+  }
+  
+  header nav a:hover {
+    color: #fff;
+  }
+  
+  /* ---------- Layout ---------- */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  
+  main > a {
+    display: inline-block;
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+  
+  /* ---------- Buttons ---------- */
+  button {
+    font: inherit;
+    cursor: pointer;
+    border: 1px solid #1e3a5f;
+    background: #1e3a5f;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+  }
+  
+  button:hover {
+    background: #152a45;
+  }
+  
+  button.secondary {
+    background: #fff;
+    color: #1a1d23;
+    border-color: #e2e5ea;
+  }
+  
+  button.secondary:hover {
+    background: #f3f4f6;
+  }
+  
+  button.danger {
+    background: #dc2626;
+    border-color: #dc2626;
+  }
+  
+  button.danger:hover {
+    background: #b91c1c;
+  }
+  
+  /* ---------- Forms ---------- */
+  label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  input, select {
+    font: inherit;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #e2e5ea;
+    border-radius: 6px;
+  }
+  
+  input:focus, select:focus {
+    outline: 2px solid #1e3a5f;
+    outline-offset: 1px;
+  }
+  
+  input.error, select.error {
+    border-color: #dc2626;
+  }
+  
+  .field-error {
+    display: block;
+    color: #dc2626;
+    font-size: 0.8rem;
+    min-height: 1.1em;
+  }
+  
+  /* ---------- Dashboard stats ---------- */
+  #stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .stat-card {
+    background: #fff;
+    border: 1px solid #e2e5ea;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+  
+  .stat-value {
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+  
+  #recent-list {
+    list-style: none;
+  }
+  
+  #recent-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #eef0f3;
+  }
+  
+  #recent-list a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  /* ---------- Employees page ---------- */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  #search-input {
+    margin-bottom: 1rem;
+    max-width: 300px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid #eef0f3;
+    font-size: 0.9rem;
+  }
+  
+  th {
+    color: #6b7280;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+  
+  td .actions button {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.8rem;
+    margin-right: 0.25rem;
+  }
+  
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .badge--active { background: #ecfdf5; color: #059669; }
+  .badge--leave { background: #fffbeb; color: #d97706; }
+  .badge--terminated { background: #fef2f2; color: #dc2626; }
+  
+  /* ---------- Modal (dialog element) ---------- */
+  dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 420px;
+  }
+  
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+  
+  /* ---------- Employee details ---------- */
+  #profile-content {
+    background: #fff;
+    border: 1px solid #e2e5ea;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  
+  .profile-name {
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .detail-label {
+    font-size: 0.75rem;
+    color: #6b7280;
+  }
+  
+  .profile-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  /* ---------- Settings ---------- */
+  main section {
+    background: #fff;
+    border: 1px solid #e2e5ea;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  main section h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  main section p {
+    margin-bottom: 0.75rem;
+    color: #4b5563;
+  }

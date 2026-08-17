@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — EMS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>EMS</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="employees.html">Employees</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Settings</h2>
+
+    <section>
+      <h3>Account</h3>
+      <p>Logged in as: <span id="current-user-email">—</span></p>
+      <button id="logout-btn">Log Out</button>
+    </section>
+
+    <section>
+      <h3>Data</h3>
+      <p>Reset all employee data back to the sample defaults.</p>
+      <button id="reset-data-btn">Reset Data</button>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="state.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — EMS</title>
+</head>
+<body>
+
+  <header>
+    <h1>EMS</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="employees.html">Employees</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Dashboard</h2>
+
+    <section id="stats">
+      <div class="stat-card">
+        <p class="stat-label">Total Employees</p>
+        <p class="stat-value" id="stat-total">0</p>
+      </div>
+
+      <div class="stat-card">
+        <p class="stat-label">Active</p>
+        <p class="stat-value" id="stat-active">0</p>
+      </div>
+
+      <div class="stat-card">
+        <p class="stat-label">On Leave</p>
+        <p class="stat-value" id="stat-leave">0</p>
+      </div>
+
+      <div class="stat-card">
+        <p class="stat-label">Terminated</p>
+        <p class="stat-value" id="stat-terminated">0</p>
+      </div>
+    </section>
+
+    <section id="recent">
+      <h3>Recent Employees</h3>
+      <ul id="recent-list">
+        <!-- filled in by JS later -->
+      </ul>
+    </section>
+  </main>
+
+</body>
+</html>

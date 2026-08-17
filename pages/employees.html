@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employees — EMS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>EMS</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="employees.html">Employees</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <h2>Employees</h2>
+      <button id="add-employee-btn">+ Add Employee</button>
+    </div>
+
+    <input type="search" id="search-input" placeholder="Search by name…">
+
+    <table id="employees-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Status</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="employees-table-body">
+        <!-- filled in by JS -->
+      </tbody>
+    </table>
+
+    <p id="empty-state" style="display:none">No employees found.</p>
+
+    <!-- Add/Edit modal -->
+    <dialog id="employee-modal">
+      <form id="employee-form">
+        <h3 id="modal-title">Add Employee</h3>
+
+        <label for="emp-name">Name</label>
+        <input type="text" id="emp-name" name="name" required>
+
+        <label for="emp-email">Email</label>
+        <input type="email" id="emp-email" name="email" required>
+
+        <label for="emp-department">Department</label>
+        <select id="emp-department" name="department" required>
+          <option value="Engineering">Engineering</option>
+          <option value="Design">Design</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Sales">Sales</option>
+          <option value="Finance">Finance</option>
+        </select>
+
+        <label for="emp-status">Status</label>
+        <select id="emp-status" name="status" required>
+          <option value="Active">Active</option>
+          <option value="On Leave">On Leave</option>
+          <option value="Terminated">Terminated</option>
+        </select>
+
+        <div class="modal-actions">
+          <button type="button" id="modal-cancel">Cancel</button>
+          <button type="submit">Save</button>
+        </div>
+      </form>
+    </dialog>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="state.js"></script>
+  <script src="employees.js"></script>
+</body>
+</html>

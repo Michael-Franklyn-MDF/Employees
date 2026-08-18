@@ -44,9 +44,14 @@ function render(emp) {
   deleteBtn.className = 'danger';
   deleteBtn.textContent = 'Delete Employee';
   deleteBtn.addEventListener('click', () => {
-    if (confirm(`Delete ${emp.name}? This cannot be undone.`)) {
+    const input = prompt(`This will permanently delete ${emp.name}'s record and cannot be undone.\n\nType the employee's name to confirm:`);
+    if (input === null) return;
+
+    if (input.trim() === emp.name) {
       deleteEmployee(emp.id);
-      window.location.href = 'employees.html';
+      render();
+    } else {
+      alert('Deletion cancelled — name did not match.');
     }
   });
 

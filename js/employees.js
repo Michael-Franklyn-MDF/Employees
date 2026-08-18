@@ -57,12 +57,17 @@ function render() {
     deleteBtn.className = 'danger';
     deleteBtn.textContent = 'Delete';
     deleteBtn.addEventListener('click', () => {
-      if (confirm(`Delete ${emp.name}? This cannot be undone.`)) {
+      const input = prompt(`This will permanently delete ${emp.name}'s record and cannot be undone.\n\nType the employee's name to confirm:`);
+      if (input === null) return;
+
+      if (input.trim() === emp.name) {
         deleteEmployee(emp.id);
         render();
+      } else {
+        alert('Deletion cancelled — name did not match.');
       }
     });
-
+    
     actionsCell.append(editBtn, deleteBtn);
     row.append(nameCell, deptCell, statusCell, emailCell, actionsCell);
     tableBody.appendChild(row);

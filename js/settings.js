@@ -7,8 +7,13 @@ document.getElementById('logout-btn').addEventListener('click', () => {
 });
 
 document.getElementById('reset-data-btn').addEventListener('click', () => {
-  if (confirm('Reset all employee data to the sample defaults? This cannot be undone.')) {
+  const input = prompt('This will permanently erase all employee data and cannot be undone.\n\nType RESET to confirm:');
+  if (input === null) return;
+
+  if (input.trim() === 'RESET') {
     resetEmployees();
     alert('Data has been reset.');
+  } else {
+    alert('Reset cancelled — input did not match "RESET".');
   }
 });

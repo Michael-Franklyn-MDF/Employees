@@ -8,25 +8,28 @@
 </head>
 <body>
 
-  <main>
-    <h1>Employee Management System</h1>
+  <div class="auth-shell">
+    <div class="auth-card">
+      <div class="brand-title">EMS</div>
+      <div class="brand-subtitle">Sign in to Employee Management System</div>
 
-    <form id="login-form">
-      <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-        <span id="error-email" class="field-error"></span>
-      </div>
+      <form id="login-form">
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+          <span id="error-email" class="field-error"></span>
+        </div>
 
-      <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-        <span id="error-password" class="field-error"></span>
-      </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+          <span id="error-password" class="field-error"></span>
+        </div>
 
-      <button type="submit">Log In</button>
-    </form>
-  </main>
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+  </div>
 
   <script src="../js/login.js"></script>
 </body>

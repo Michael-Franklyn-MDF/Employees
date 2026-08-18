@@ -16,28 +16,73 @@ a {
   color: #1e3a5f;
 }
 
-/* ---------- Header / nav ---------- */
-header {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 1rem 1.5rem;
-  background: #111827;
+/* ---------- Sidebar nav ---------- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 220px;
+  background: #161b22;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+  z-index: 10;
 }
 
-header h1 {
-  font-size: 1.1rem;
+.sidebar-brand {
+  padding: 0 1.5rem 1.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #262c36;
 }
 
-header nav a {
+.sidebar-brand .brand-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-brand .brand-subtitle {
+  font-size: 0.7rem;
+  color: #6b7280;
+  margin-top: 0.15rem;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.75rem 0.75rem;
+}
+
+.sidebar nav a {
   color: #9ca3af;
   text-decoration: none;
-  margin-right: 1rem;
+  font-size: 0.9rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 6px;
+  border-left: 3px solid transparent;
 }
 
-header nav a:hover {
+.sidebar nav a:hover {
   color: #fff;
+  background: #1f242d;
+}
+
+.sidebar nav a.active {
+  color: #fff;
+  background: #1f242d;
+  border-left-color: #4f83c7;
+  font-weight: 600;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 1rem 1.5rem 0;
+  border-top: 1px solid #262c36;
+  font-size: 0.75rem;
+  color: #6b7280;
 }
 
 /* ---------- Layout ---------- */
@@ -47,10 +92,166 @@ main {
   padding: 1.5rem;
 }
 
+body.with-sidebar main {
+  margin-left: 220px;
+  max-width: 900px;
+  padding: 2rem;
+  width: 100%;
+}
+
 main > a {
   display: inline-block;
   margin-bottom: 1rem;
   text-decoration: none;
+}
+
+/* ---------- Landing page ---------- */
+.top-nav {
+  background: #161b22;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  text-decoration: none;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.brand .brand-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.brand .brand-subtitle {
+  font-size: 0.7rem;
+  color: #9ca3af;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  border-radius: 6px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #374151;
+}
+
+.btn-secondary:hover {
+  background: #1f242d;
+}
+
+.hero {
+  background: #f0f3f8;
+  border-bottom: 1px solid #e2e5ea;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+}
+
+.hero-content {
+  max-width: 560px;
+}
+
+.kicker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #4f83c7;
+  margin-bottom: 0.75rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  line-height: 1.15;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-primary {
+  background: #1e3a5f;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #152a45;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #1e3a5f;
+  border: 1px solid #c7d0dc;
+}
+
+.btn-outline:hover {
+  background: #e2e8f2;
+}
+
+/* ---------- Login page ---------- */
+.auth-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f3f8;
+  padding: 1.5rem;
+}
+
+.auth-card {
+  background: #fff;
+  border: 1px solid #e2e5ea;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 1px 3px rgba(17, 24, 39, 0.06);
+}
+
+.auth-card .brand-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.auth-card .brand-subtitle {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.auth-card button[type="submit"] {
+  width: 100%;
+  margin-top: 1.25rem;
 }
 
 /* ---------- Buttons ---------- */
@@ -279,4 +480,64 @@ main section h3 {
 main section p {
   margin-bottom: 0.75rem;
   color: #4b5563;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+  }
+
+  .sidebar-brand {
+    padding: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    padding: 0;
+    overflow-x: auto;
+  }
+
+  .sidebar nav a {
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+
+  .sidebar nav a.active {
+    border-left-color: transparent;
+    border-bottom-color: #4f83c7;
+  }
+
+  .sidebar-footer {
+    display: none;
+  }
+
+  body.with-sidebar main {
+    margin-left: 0;
+    padding: 1.25rem;
+  }
+
+  .hero-inner {
+    padding: 3rem 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .nav-inner {
+    padding: 0 1.25rem;
+  }
 }

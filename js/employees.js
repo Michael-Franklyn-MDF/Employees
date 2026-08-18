@@ -81,6 +81,7 @@ function openModal(employee) {
   document.getElementById('emp-email').value = employee?.email || '';
   document.getElementById('emp-department').value = employee?.department || 'Engineering';
   document.getElementById('emp-status').value = employee?.status || 'Active';
+  clearFormErrors();
   modal.showModal();
 }
 
@@ -88,17 +89,52 @@ document.getElementById('add-employee-btn').addEventListener('click', () => open
 document.getElementById('modal-cancel').addEventListener('click', () => modal.close());
 document.getElementById('modal-close').addEventListener('click', () => modal.close());
 
+const nameInput = document.getElementById('emp-name');
+const emailInput = document.getElementById('emp-email');
+const nameError = document.getElementById('error-name');
+const emailError = document.getElementById('error-email');
+
+function clearFormErrors() {
+  nameInput.classList.remove('error');
+  emailInput.classList.remove('error');
+  nameError.textContent = '';
+  emailError.textContent = '';
+}
+
+function showFieldError(input, errorEl, message) {
+  input.classList.add('error');
+  errorEl.textContent = message;
+}
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+  clearFormErrors();
 
   const data = {
-    name: document.getElementById('emp-name').value.trim(),
-    email: document.getElementById('emp-email').value.trim(),
+    name: nameInput.value.trim(),
+    email: emailInput.value.trim(),
     department: document.getElementById('emp-department').value,
     status: document.getElementById('emp-status').value,
   };
 
-  if (!data.name || !data.email) return;
+  let valid = true;
+
+  if (!data.name) {
+    showFieldError(nameInput, nameError, 'Name is required.');
+    valid = false;
+  }
+
+  if (!data.email) {
+    showFieldError(emailInput, emailError, 'Email is required.');
+    valid = false;
+  } else if (!EMAIL_PATTERN.test(data.email)) {
+    showFieldError(emailInput, emailError, 'Enter a valid email address.');
+    valid = false;
+  }
+
+  if (!valid) return;
 
   if (editingId) {
     updateEmployee(editingId, data);
@@ -109,10 +145,3 @@ form.addEventListener('submit', (e) => {
   modal.close();
   render();
 });
-
-searchInput.addEventListener('input', (e) => {
-  searchQuery = e.target.value;
-  render();
-});
-
-render();

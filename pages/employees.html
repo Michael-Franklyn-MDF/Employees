@@ -53,7 +53,10 @@
     <!-- Add/Edit modal -->
     <dialog id="employee-modal">
       <form id="employee-form">
-        <h3 id="modal-title">Add Employee</h3>
+        <div class="modal-header">
+          <h3 id="modal-title">Add Employee</h3>
+          <button type="button" id="modal-close" class="modal-close" aria-label="Close">&times;</button>
+        </div>
 
         <label for="emp-name">Name</label>
         <input type="text" id="emp-name" name="name" required>
@@ -78,7 +81,7 @@
         </select>
 
         <div class="modal-actions">
-          <button type="button" id="modal-cancel">Cancel</button>
+          <button type="button" id="modal-cancel" class="secondary">Cancel</button>
           <button type="submit">Save</button>
         </div>
       </form>

@@ -81,6 +81,7 @@ function openModal(employee) {
 
 document.getElementById('add-employee-btn').addEventListener('click', () => openModal(null));
 document.getElementById('modal-cancel').addEventListener('click', () => modal.close());
+document.getElementById('modal-close').addEventListener('click', () => modal.close());
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();

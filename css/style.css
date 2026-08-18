@@ -607,13 +607,40 @@ td .actions button {
 dialog {
   border: none;
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 1.75rem;
   width: 90%;
-  max-width: 420px;
+  max-width: 440px;
 }
 
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.85rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid #eef0f3;
+}
+
+.modal-header h3 {
+  font-size: 1.05rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0.1rem 0.4rem;
+}
+
+.modal-close:hover {
+  background: #f3f4f6;
+  color: #1a1d23;
 }
 
 .modal-actions {
@@ -622,7 +649,6 @@ dialog::backdrop {
   gap: 0.5rem;
   margin-top: 1.25rem;
 }
-
 /* ---------- Employee details ---------- */
 #profile-content {
   background: #fff;
@@ -679,16 +705,6 @@ main section p {
 
 .section--danger h3 {
   color: #dc2626;
-}
-
-.btn-danger {
-  background: #dc2626;
-  color: #fff;
-  border: none;
-}
-
-.btn-danger:hover {
-  background: #b91c1c;
 }
 
 /* ---------- Responsive ---------- */

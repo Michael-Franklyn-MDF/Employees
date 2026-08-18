@@ -31,7 +31,15 @@
       <button id="add-employee-btn">+ Add Employee</button>
     </div>
 
+    <label for="search-input" class="visually-hidden">Search employees</label>
     <input type="search" id="search-input" placeholder="Search by name, email, or department…">
+
+    <div class="filter-chips" id="status-filters" role="group" aria-label="Filter by status">
+      <button type="button" class="chip active" data-status="All" aria-pressed="true">All</button>
+      <button type="button" class="chip" data-status="Active" aria-pressed="false">Active</button>
+      <button type="button" class="chip" data-status="On Leave" aria-pressed="false">On Leave</button>
+      <button type="button" class="chip" data-status="Terminated" aria-pressed="false">Terminated</button>
+    </div>
 
     <div class="panel table-panel">
       <table id="employees-table">
@@ -53,7 +61,7 @@
     </div>
 
     <!-- Add/Edit modal -->
-    <dialog id="employee-modal">
+    <dialog id="employee-modal" aria-labelledby="modal-title">
       <form id="employee-form">
         <div class="modal-header">
           <h3 id="modal-title">Add Employee</h3>

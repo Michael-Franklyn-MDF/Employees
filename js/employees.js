@@ -6,17 +6,20 @@ const form = document.getElementById('employee-form');
 
 let editingId = null;
 let searchQuery = '';
+let statusFilter = 'All';
 
 function render() {
   const all = getEmployees();
   const query = searchQuery.toLowerCase();
-  const filtered = searchQuery
-    ? all.filter((e) =>
-        e.name.toLowerCase().includes(query) ||
-        e.email.toLowerCase().includes(query) ||
-        e.department.toLowerCase().includes(query)
-      )
-    : all;
+
+  const filtered = all
+    .filter((e) => statusFilter === 'All' || e.status === statusFilter)
+    .filter((e) =>
+      !query ||
+      e.name.toLowerCase().includes(query) ||
+      e.email.toLowerCase().includes(query) ||
+      e.department.toLowerCase().includes(query)
+    );
 
   tableBody.innerHTML = '';
 
@@ -56,11 +59,13 @@ function render() {
     const editBtn = document.createElement('button');
     editBtn.className = 'secondary';
     editBtn.textContent = 'Edit';
-    editBtn.addEventListener('click', () => openModal(emp));
+    editBtn.setAttribute('aria-label', `Edit ${emp.name}`);
+    editBtn.addEventListener('click', () => openModal(emp, editBtn));
 
     const deleteBtn = document.createElement('button');
     deleteBtn.className = 'danger';
     deleteBtn.textContent = 'Delete';
+    deleteBtn.setAttribute('aria-label', `Delete ${emp.name}`);
     deleteBtn.addEventListener('click', () => {
       const input = prompt(`This will permanently delete ${emp.name}'s record and cannot be undone.\n\nType the employee's name to confirm:`);
       if (input === null) return;
@@ -79,8 +84,11 @@ function render() {
   });
 }
 
-function openModal(employee) {
+let lastTrigger = null;
+
+function openModal(employee, trigger) {
   editingId = employee ? employee.id : null;
+  lastTrigger = trigger || null;
   document.getElementById('modal-title').textContent = employee ? 'Edit Employee' : 'Add Employee';
   document.getElementById('emp-name').value = employee?.name || '';
   document.getElementById('emp-email').value = employee?.email || '';
@@ -88,9 +96,33 @@ function openModal(employee) {
   document.getElementById('emp-status').value = employee?.status || 'Active';
   clearFormErrors();
   modal.showModal();
+  nameInput.focus();
 }
 
-document.getElementById('add-employee-btn').addEventListener('click', () => openModal(null));
+modal.addEventListener('close', () => {
+  if (lastTrigger) lastTrigger.focus();
+});
+
+searchInput.addEventListener('input', (e) => {
+  searchQuery = e.target.value;
+  render();
+});
+
+document.querySelectorAll('#status-filters .chip').forEach((chip) => {
+  chip.addEventListener('click', () => {
+    statusFilter = chip.dataset.status;
+    document.querySelectorAll('#status-filters .chip').forEach((c) => {
+      c.classList.remove('active');
+      c.setAttribute('aria-pressed', 'false');
+    });
+    chip.classList.add('active');
+    chip.setAttribute('aria-pressed', 'true');
+    render();
+  });
+});
+
+const addEmployeeBtn = document.getElementById('add-employee-btn');
+addEmployeeBtn.addEventListener('click', () => openModal(null, addEmployeeBtn));
 document.getElementById('modal-cancel').addEventListener('click', () => modal.close());
 document.getElementById('modal-close').addEventListener('click', () => modal.close());
 
@@ -137,6 +169,14 @@ form.addEventListener('submit', (e) => {
   } else if (!EMAIL_PATTERN.test(data.email)) {
     showFieldError(emailInput, emailError, 'Enter a valid email address.');
     valid = false;
+  } else {
+    const duplicate = getEmployees().find(
+      (emp) => emp.email.toLowerCase() === data.email.toLowerCase() && emp.id !== editingId
+    );
+    if (duplicate) {
+      showFieldError(emailInput, emailError, `Already used by ${duplicate.name}.`);
+      valid = false;
+    }
   }
 
   if (!valid) return;

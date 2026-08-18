@@ -217,6 +217,95 @@ main > a {
   background: #e2e8f2;
 }
 
+/* ---------- Landing: features ---------- */
+.features {
+  background: #fff;
+}
+
+.features-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  border: 1px solid #e2e5ea;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.feature-icon {
+  font-size: 1.4rem;
+  color: #1e3a5f;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card h3 {
+  font-size: 1rem;
+  color: #111827;
+  margin-bottom: 0.4rem;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* ---------- Landing: footer ---------- */
+.site-footer {
+  background: #161b22;
+  color: #9ca3af;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand .brand-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.footer-brand .brand-subtitle {
+  font-size: 0.75rem;
+  margin-top: 0.15rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 1.5rem;
+  border-top: 1px solid #262c36;
+  font-size: 0.8rem;
+}
+
 /* ---------- Login page ---------- */
 .auth-shell {
   min-height: 100vh;
@@ -539,5 +628,17 @@ main section p {
 
   .nav-inner {
     padding: 0 1.25rem;
+  }
+
+  .features-inner {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .footer-inner {
+    padding: 2rem 1.25rem 1.25rem;
+  }
+
+  .footer-bottom {
+    padding: 1rem 1.25rem 1.25rem;
   }
 }

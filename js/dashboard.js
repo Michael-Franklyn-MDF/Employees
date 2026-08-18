@@ -15,7 +15,7 @@ if (recent.length === 0) {
     const li = document.createElement('li');
 
     const link = document.createElement('a');
-    link.href = `employee-details.html?id=${emp.id}`;
+    link.href = `e-details.html?id=${emp.id}`;
     link.textContent = emp.name;
 
     const badge = document.createElement('span');

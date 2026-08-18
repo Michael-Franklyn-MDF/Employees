@@ -29,7 +29,7 @@ function render() {
 
     const nameCell = document.createElement('td');
     const nameLink = document.createElement('a');
-    nameLink.href = `employee-details.html?id=${emp.id}`;
+    nameLink.href = `e-details.html?id=${emp.id}`;
     nameLink.textContent = emp.name;
     nameCell.appendChild(nameLink);
 

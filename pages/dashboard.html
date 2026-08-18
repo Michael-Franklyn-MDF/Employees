@@ -21,36 +21,54 @@
   </aside>
 
   <main>
-    <h2>Dashboard</h2>
+    <div class="dash-header">
+      <div>
+        <h2>Dashboard</h2>
+        <p class="dash-sub">A quick look at your team, right now.</p>
+      </div>
+      <div class="quick-actions">
+        <a class="btn btn-primary" href="employees.html">+ Add employee</a>
+        <a class="btn btn-outline" href="employees.html">View all employees</a>
+      </div>
+    </div>
 
     <section id="stats">
-      <div class="stat-card">
+      <div class="stat-card stat-card--total">
         <p class="stat-label">Total Employees</p>
         <p class="stat-value" id="stat-total">0</p>
       </div>
 
-      <div class="stat-card">
+      <div class="stat-card stat-card--active">
         <p class="stat-label">Active</p>
         <p class="stat-value" id="stat-active">0</p>
       </div>
 
-      <div class="stat-card">
+      <div class="stat-card stat-card--leave">
         <p class="stat-label">On Leave</p>
         <p class="stat-value" id="stat-leave">0</p>
       </div>
 
-      <div class="stat-card">
+      <div class="stat-card stat-card--terminated">
         <p class="stat-label">Terminated</p>
         <p class="stat-value" id="stat-terminated">0</p>
       </div>
     </section>
 
-    <section id="recent">
-      <h3>Recent Employees</h3>
-      <ul id="recent-list">
-        <!-- filled in by JS later -->
-      </ul>
-    </section>
+    <div class="dash-grid">
+      <section class="panel" id="recent">
+        <h3>Recent Employees</h3>
+        <ul id="recent-list">
+          <!-- filled in by JS later -->
+        </ul>
+      </section>
+
+      <section class="panel" id="departments">
+        <h3>By Department</h3>
+        <ul id="department-list">
+          <!-- filled in by JS -->
+        </ul>
+      </section>
+    </div>
   </main>
 
   <script src="../js/data.js"></script>

@@ -22,28 +22,33 @@
 
   <main>
     <div class="page-header">
-      <h2>Employees</h2>
+      <div>
+        <h2>Employees</h2>
+        <p class="page-subline">Search, add, and manage your team's records.</p>
+      </div>
       <button id="add-employee-btn">+ Add Employee</button>
     </div>
 
     <input type="search" id="search-input" placeholder="Search by name…">
 
-    <table id="employees-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Department</th>
-          <th>Status</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="employees-table-body">
-        <!-- filled in by JS -->
-      </tbody>
-    </table>
+    <div class="panel table-panel">
+      <table id="employees-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Status</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="employees-table-body">
+          <!-- filled in by JS -->
+        </tbody>
+      </table>
 
-    <p id="empty-state" style="display:none">No employees found.</p>
+      <p id="empty-state" class="empty-state" style="display:none">No employees found. Try a different search, or add your first employee.</p>
+    </div>
 
     <!-- Add/Edit modal -->
     <dialog id="employee-modal">

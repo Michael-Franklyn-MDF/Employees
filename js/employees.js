@@ -9,8 +9,13 @@ let searchQuery = '';
 
 function render() {
   const all = getEmployees();
+  const query = searchQuery.toLowerCase();
   const filtered = searchQuery
-    ? all.filter((e) => e.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    ? all.filter((e) =>
+        e.name.toLowerCase().includes(query) ||
+        e.email.toLowerCase().includes(query) ||
+        e.department.toLowerCase().includes(query)
+      )
     : all;
 
   tableBody.innerHTML = '';
